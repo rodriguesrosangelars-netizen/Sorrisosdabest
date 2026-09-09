@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sorrisos da Best — achadinhos, ofertas e descontos exclusivos.">
+  <meta name="theme-color" content="#ff4f87">
+  <title>Sorrisos da Best | Achadinhos & Ofertas</title>
+
+  <style>
+    :root{
+      --pink:#ff4f87;
+      --pink-dark:#e83d73;
+      --purple:#7b4cff;
+      --cream:#fff8fb;
+      --text:#241d2b;
+      --muted:#756b79;
+      --white:#ffffff;
+      --shadow:0 12px 35px rgba(65,35,70,.12);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .container{width:min(1100px,92%);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #f1e5eb;
+    }
+
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      font-weight:900;
+      font-size:1.35rem;
+      letter-spacing:-.5px;
+    }
+    .brand span{color:var(--pink)}
+
+    .nav-links{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      padding:9px 12px;
+      border-radius:999px;
+      color:#514754;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .nav-links a:hover{background:#fff0f5;color:var(--pink-dark)}
+
+    .hero{padding:34px 0 24px}
+    .hero-card{
+      overflow:hidden;
+      border-radius:28px;
+      background:linear-gradient(135deg,#fff0f5,#f5efff);
+      box-shadow:var(--shadow);
+      border:1px solid #f5e6ed;
+    }
+
+    .hero-image{
+      width:100%;
+      max-height:430px;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .hero-content{
+      padding:28px;
+      text-align:center;
+    }
+    .eyebrow{
+      display:inline-block;
+      color:var(--pink-dark);
+      background:#fff;
+      border:1px solid #ffd8e5;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      margin-bottom:12px;
+    }
+    h1{
+      font-size:clamp(2rem,6vw,3.6rem);
+      line-height:1.05;
+      letter-spacing:-1.5px;
+      margin-bottom:12px;
+    }
+    .hero-content p{
+      color:var(--muted);
+      max-width:650px;
+      margin:0 auto 20px;
+      font-size:1.05rem;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 20px;
+      border-radius:14px;
+      font-weight:900;
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--pink),var(--purple));
+      color:#fff;
+      box-shadow:0 8px 20px rgba(123,76,255,.2);
+    }
+    .btn-light{background:#fff;border-color:#f0dce5;color:#4b404d}
+    .btn-whatsapp{background:#25d366;color:#fff}
+
+    section{padding:32px 0}
+    .section-head{text-align:center;margin-bottom:20px}
+    .section-head h2{font-size:1.8rem;margin-bottom:6px}
+    .section-head p{color:var(--muted)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #f0e5ea;
+      border-radius:var(--radius);
+      padding:22px 16px;
+      text-align:center;
+      box-shadow:0 8px 24px rgba(65,35,70,.07);
+      transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .icon{
+      width:58px;height:58px;
+      margin:0 auto 12px;
+      display:grid;place-items:center;
+      border-radius:18px;
+      background:#fff0f5;
+      font-size:1.7rem;
+    }
+    .card h3{font-size:1rem;margin-bottom:5px}
+    .card p{font-size:.88rem;color:var(--muted);margin-bottom:15px}
+
+    .cta{
+      background:linear-gradient(135deg,#241d2b,#4d335c);
+      color:#fff;
+      border-radius:28px;
+      padding:32px 24px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .cta h2{font-size:1.8rem;margin-bottom:8px}
+    .cta p{color:#eadfea;margin-bottom:18px}
+
+    footer{
+      padding:32px 0 90px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    footer strong{color:var(--text)}
+
+    .floating{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:30;
+      background:#25d366;
+      color:#fff;
+      width:58px;height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:1.55rem;
+      box-shadow:0 10px 25px rgba(0,0,0,.2);
+    }
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .nav{padding:10px 0}
+      .nav-links{display:none}
+    }
+
+    @media(max-width:520px){
+      .hero{padding-top:16px}
+      .hero-content{padding:23px 16px}
+      .hero-image{max-height:300px}
+      .grid{gap:10px}
+      .card{padding:17px 10px}
+      .card p{font-size:.8rem}
+      .btn{width:100%}
+      .buttons{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio">Sorrisos <span>da Best</span> ✨</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#achadinhos">Achadinhos</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#descontos">Descontos</a>
+        <a href="#grupo">Grupo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="container hero">
+      <div class="hero-card">
+        <img class="hero-image" src="banner-sorrisosdabest.png" alt="Sorrisos da Best">
+        <div class="hero-content">
+          <span class="eyebrow">Seu cantinho de achadinhos</span>
+          <h1>Ofertas que dão vontade de sorrir! 💕</h1>
+          <p>Encontre achadinhos, oportunidades e descontos especiais em um só lugar.</p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#ofertas">🔥 VER OFERTAS</a>
+            <a class="btn btn-light" href="#achadinhos">🛍️ ACHADINHOS</a>
+            <a class="btn btn-light" href="#descontos">💸 DESCONTOS EXCLUSIVOS</a>
+            <a class="btn btn-whatsapp" href="#grupo">💬 ENTRAR NO GRUPO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="achadinhos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Encontre seus achadinhos 🛍️</h2>
+          <p>Escolha uma categoria e descubra suas próximas compras.</p>
+        </div>
+
+        <div class="grid">
+          <a class="card" href="#ofertas">
+            <div class="icon">✨</div>
+            <h3>Achadinhos</h3>
+            <p>Produtos que valem a pena conhecer.</p>
+            <span class="btn btn-light">Ver agora</span>
+          </a>
+
+          <a class="card" id="ofertas" href="#descontos">
+            <div class="icon">🔥</div>
+            <h3>Ofertas</h3>
+            <p>Oportunidades para aproveitar.</p>
+            <span class="btn btn-light">Ver ofertas</span>
+          </a>
+
+          <a class="card" id="descontos" href="#grupo">
+            <div class="icon">💸</div>
+            <h3>Descontos</h3>
+            <p>Condições especiais e novidades.</p>
+            <span class="btn btn-light">Conferir</span>
+          </a>
+
+          <a class="card" id="grupo" href="https://chat.whatsapp.com/I2MwWJfYBVKHW89ak0btNc?s=cl&p=a&mlu=4&ilr=4">
+            <div class="icon">💬</div>
+            <h3>Grupo</h3>
+            <p>Receba novidades e oportunidades.</p>
+            <span class="btn btn-whatsapp">Entrar</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Quer receber os melhores achadinhos? 💖</h2>
+          <p>Entre no grupo e acompanhe as novidades, ofertas e oportunidades.</p>
+          <a class="btn btn-primary" href="https://chat.whatsapp.com/I2MwWJfYBVKHW89ak0btNc?s=cl&p=a&mlu=4&ilr=4">QUERO ENTRAR NO GRUPO 🚀</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Sorrisos da Best</strong><br>
+      Achadinhos, ofertas e descontos para deixar suas compras ainda melhores. ✨
+    </div>
+  </footer>
+
+  <a class="floating" href="https://chat.whatsapp.com/I2MwWJfYBVKHW89ak0btNc?s=cl&p=a&mlu=4&ilr=4" aria-label="Abrir WhatsApp">💬</a>
+</body>
+</html>
